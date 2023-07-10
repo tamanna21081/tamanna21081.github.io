@@ -103,5 +103,24 @@ document.getElementById('submit-button').addEventListener('click', function () {
   document.getElementById('taskArea').style.display = 'none';
   document.getElementById('resultsArea').style.display = 'block';
   
+  var data = [
+        ['Correct Answers', 'Incorrect Answers', 'No Answer'],
+        [correctCount, inCorrectCount, noAnswer]
+      ];
+
+      var csvContent = 'data:text/csv;charset=utf-8,';
+
+      data.forEach(function(rowArray) {
+        var row = rowArray.join(',');
+        csvContent += row + '\r\n';
+      });
+
+      var encodedUri = encodeURI(csvContent);
+      var link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', 'ResultCaptchaTest.csv');
+      document.body.appendChild(link);
+      link.click();
+  
   
 });
