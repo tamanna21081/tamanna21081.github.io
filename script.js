@@ -91,21 +91,14 @@ document.getElementById('submit-button').addEventListener('click', function () {
   sessionStorage.setItem('noAnswers', noAnswer);
 
   document.getElementById('resultsArea').innerHTML = `
-        <h2>Task Results:</h2>
-        Participant Number: ${participantNumber}<br>
-        Device Type: ${deviceType}<br>
-        Task Number: ${taskNumber}<br>
-        Time Taken: ${timeTaken} seconds<br>
-        Correct Answers: ${correctCount}<br>
-        Incorrect Answers: ${inCorrectCount}<br>
-        No Answer: ${noAnswer}`;
+        <h2>Thank you for taking test!!</h2>`;
 
   document.getElementById('taskArea').style.display = 'none';
   document.getElementById('resultsArea').style.display = 'block';
   
   var data = [
-        ['Correct Answers', 'Incorrect Answers', 'No Answer'],
-        [correctCount, inCorrectCount, noAnswer]
+        ['Correct Answers', 'Incorrect Answers', 'No Answer', 'Participant Number', 'Device Type', 'Task Number', 'Time Taken'],
+        [correctCount, inCorrectCount, noAnswer, participantNumber, deviceType, taskNumber, timeTaken]
       ];
 
       var csvContent = 'data:text/csv;charset=utf-8,';
